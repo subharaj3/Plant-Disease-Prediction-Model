@@ -1,0 +1,230 @@
+:root {
+    --primary: #2e7d32;
+    --primary-hover: #1b5e20;
+    --bg-color: #f4f7f6;
+    --card-bg: #ffffff;
+    --text-main: #333333;
+    --border-color: #e0e0e0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background: var(--card-bg);
+    max-width: 600px;
+    width: 90%;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+/* Upload Area Styles */
+.upload-area {
+    border: 2px dashed var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+    background-color: #fafafa;
+}
+
+.upload-area.dragover {
+    border-color: var(--primary);
+    background-color: #e8f5e9;
+}
+
+.upload-prompt p {
+    margin-top: 10px;
+    color: #666;
+}
+
+.upload-prompt span {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+/* Image Preview */
+.image-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 250px;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    object-fit: cover;
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: var(--primary-hover);
+}
+
+.btn-primary:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    background-color: #ffebee;
+    color: #d32f2f;
+    width: auto;
+    padding: 8px 16px;
+}
+
+/* Loader */
+.loader-container {
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 10px auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Results */
+.result-container {
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+}
+
+.result-card {
+    background: #f1f8e9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.result-item .highlight {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+/* =========================================
+   Mobile Responsiveness (Screens under 600px)
+   ========================================= */
+@media (max-width: 600px) {
+
+    /* Reduce outer spacing so the card takes up more screen */
+    .container {
+        width: 95%;
+        padding: 1.5rem 1rem;
+        border-radius: 10px;
+    }
+
+    /* Scale down the typography */
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    header p {
+        font-size: 0.95rem;
+    }
+
+    /* Make the drop zone smaller but keep it easy to tap */
+    .upload-area {
+        padding: 1.5rem 1rem;
+    }
+
+    .upload-prompt svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .upload-prompt p {
+        font-size: 0.9rem;
+    }
+
+    /* Ensure the preview image doesn't overflow */
+    .image-preview img {
+        max-height: 200px;
+    }
+
+    /* Make the result text stack better on very small screens */
+    .result-item {
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 1rem;
+        gap: 0.25rem;
+        margin-bottom: 1rem;
+    }
+
+    .result-item:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Slightly larger button for touch screens */
+    button {
+        padding: 14px;
+        font-size: 1.05rem;
+    }
+}

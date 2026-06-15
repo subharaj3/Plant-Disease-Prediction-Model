@@ -1,0 +1,18 @@
+# Node
+backend-node/node_modules/
+npm-debug.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.env
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Note: model.pth is NOT ignored so it can be cloned and run. 
+# If your model.pth is larger than 100MB, you must use Git LFS or ignore it.

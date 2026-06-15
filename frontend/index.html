@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plant Disease Diagnostic Platform</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Plant Disease Diagnostic</h1>
+        <p>
+          Upload a clear image of a plant leaf to identify potential diseases.
+        </p>
+      </header>
+
+      <main>
+        <div class="upload-area" id="uploadArea">
+          <input type="file" id="fileInput" accept="image/*" hidden />
+          <div class="upload-prompt" id="uploadPrompt">
+            <svg
+              width="50"
+              height="50"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+            <p>Drag & Drop an image here or <span>Click to Browse</span></p>
+          </div>
+          <div class="image-preview" id="imagePreview" style="display: none">
+            <img id="previewImg" src="" alt="Leaf preview" />
+            <button id="removeBtn" class="btn-secondary">Remove</button>
+          </div>
+        </div>
+
+        <button id="analyzeBtn" class="btn-primary" disabled>
+          Analyze Image
+        </button>
+
+        <div id="loader" class="loader-container" style="display: none">
+          <div class="spinner"></div>
+          <p>Analyzing with Deep Learning Model...</p>
+        </div>
+
+        <div
+          id="resultContainer"
+          class="result-container"
+          style="display: none"
+        >
+          <h3>Analysis Complete</h3>
+          <div class="result-card">
+            <div class="result-item">
+              <span class="label">Diagnosis:</span>
+              <span id="diseaseClass" class="value highlight">--</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Confidence:</span>
+              <span id="confidenceScore" class="value">--</span>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
